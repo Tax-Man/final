@@ -1,6 +1,5 @@
 package Final;
 
-
 /**
  * Final.java - attempt at replicating the classic PC "Minesweeper" game
  *

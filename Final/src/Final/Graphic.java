@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
 
 public class Graphic extends JFrame {
 
-    private Button[][] matrix;
+    public Button[][] matrix;
     public int inputX;
     public int inputY;
-    private int BUTTON_SIZE;
+    public int BUTTON_SIZE;
 
-    /** 
+    /**
      * Creates the Frame from different parts
      */
     public Graphic() {
@@ -30,15 +30,16 @@ public class Graphic extends JFrame {
 
         addControls(container);
 
-        debug(inputX, inputY);
+        //display the numbers / if its a mine w/o clicking
+//        debug(inputX, inputY);
 
         this.setVisible(true);
 
     }
 
     /**
-     * Adds a new Button to the 2d array and tells it to determine if it's a mine or not
-     * and it's position
+     * Adds a new Button to the 2d array and tells it to determine if it's a
+     * mine or not and its position
      */
     private void generate() {
         matrix = new Button[inputX][inputY];
@@ -71,13 +72,13 @@ public class Graphic extends JFrame {
     }
 
     /**
-     *sets look and feel of container
+     * sets look and feel of container
      */
     private void setFrame() {
 
         //so the red x closes the program
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        
+
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
         String filename = "/Final/MINE.png";
@@ -93,6 +94,7 @@ public class Graphic extends JFrame {
 
     /**
      * creates the empty frame
+     *
      * @return the created frame
      */
     private Container setCont() {
@@ -107,6 +109,7 @@ public class Graphic extends JFrame {
 
     /**
      * Adds the buttons to the container
+     *
      * @param container
      */
     private void addControls(Container container) {
@@ -127,6 +130,7 @@ public class Graphic extends JFrame {
 
     /**
      * checks around the mine to see how many are surrounding it
+     *
      * @param X The X position of which the method is checking around
      * @param Y The Y position of which the method is checking around
      */
@@ -145,8 +149,9 @@ public class Graphic extends JFrame {
     }
 
     /**
-     * if a tile has 0 mines around it, then it can safely clear all tiles 
+     * if a tile has 0 mines around it, then it can safely clear all tiles
      * around it automatically for the ease of the user
+     *
      * @param posX the X position of the tile
      * @param posY the Y position of the tile
      */
@@ -169,6 +174,7 @@ public class Graphic extends JFrame {
 
     /**
      * calls for the button to display its number w/o clicking it
+     *
      * @param inputX the grid X
      * @param inputY the grid Y
      */
@@ -232,8 +238,8 @@ public class Graphic extends JFrame {
     }
 
     /**
-     *when the user clicks a button, check if they have won, if they have, 
-     * then ask present the end dialog
+     * when the user clicks a button, check if they have won, if they have, then
+     * ask present the end dialog
      */
     void checkForWin() {
 
@@ -246,7 +252,6 @@ public class Graphic extends JFrame {
                 }
             }
         }
-        System.out.println(number + " " + value);
         if (value == number) {
             int input = JOptionPane.showConfirmDialog(null, "You're Win!\nPlay again?", "MeinKraft",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
